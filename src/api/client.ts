@@ -18,10 +18,6 @@ export async function apiFetch<T>(
     const token = getStoredToken();
     const headers = new Headers(options.headers || {});
 
-    if (!token) {
-        return Promise.reject(new Error('No token found'));
-    }
-
     if (!headers.has('Content-Type') && options.body) {
         headers.set('Content-Type', 'application/json');
     }
