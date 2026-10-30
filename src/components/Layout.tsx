@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import { UseAuth } from "../context/AuthContext";
 
 export function Layout() {
@@ -13,7 +13,9 @@ export function Layout() {
   return (
     <div>
       {/* Header with navbar */}
-      {/* app-content */}
+      <main>
+        <Outlet></Outlet>
+      </main>
     </div>
   );
 }
