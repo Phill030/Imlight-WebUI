@@ -1,0 +1,13 @@
+@use "sass:color";
+
+$background: #0a0a0a;
+$text: #f8fafc;
+$primary: #8b5cf6;
+$primary-hover: color.scale($primary, $lightness: 10%);
+
+$error: #ef4444;
+$success: #22c55e;
+$warning: #e7ac2c;
+
+$transition: 300ms ease;
+$font-family: "Lexend Deca Variable", system-ui, sans-serif;
