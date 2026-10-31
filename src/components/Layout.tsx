@@ -1,18 +1,11 @@
-import { Outlet, useNavigate } from "react-router";
-import { UseAuth } from "../context/AuthContext";
+import { Outlet } from "react-router";
+import Header from "./Header/Header";
 
 export function Layout() {
-  const { account, logout, hasScope } = UseAuth();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
-
   return (
     <div>
-      {/* Header with navbar */}
+      <Header />
+
       <main>
         <Outlet></Outlet>
       </main>
