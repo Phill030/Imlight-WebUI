@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { UseAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 import { useLocation, Navigate } from "react-router";
 
 interface ProtectedRouteProps {
@@ -20,7 +20,7 @@ interface ProtectedRouteProps {
  * @param requiredScope - Optional permission scope required to access the route.
  */
 export function ProtectedRoute({ children, requiredScope }: ProtectedRouteProps) {
-  const { account, loading, hasScope } = UseAuth();
+  const { account, loading, hasScope } = useAuth();
   const location = useLocation();
 
   if (loading) {

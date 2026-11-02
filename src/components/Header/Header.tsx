@@ -2,7 +2,7 @@ import styles from "./Header.module.scss";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router";
-import { UseAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/AuthContext";
 
 type NavLink = {
   href: string;
@@ -20,7 +20,7 @@ const navLinks: NavLink[] = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { account, logout, hasScope } = UseAuth();
+  const { account, logout, hasScope } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,6 +30,7 @@ export default function Header() {
   }, []);
 
   const handleLogout = () => {
+    setIsMenuOpen(false);
     logout();
     navigate("/login");
   };
@@ -41,7 +42,7 @@ export default function Header() {
       <div className={styles.container}>
         <Link to="/" className={styles.logo}>
           <img src="/images/Letter_W.webp" alt="Revive101 Logo" className={styles.logoImg} />
-          Revive101
+          Imlight WebUI
         </Link>
 
         {/* Desktop Navigation */}
